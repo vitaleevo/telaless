@@ -1,0 +1,8 @@
+{
+  "name": "Tela Less - Portal de Notícias",
+  "description": "Um portal de notícias moderno e multimédia para Angola e África, incluindo área administrativa e editor de conteúdos.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
