@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white dark:bg-[#1a2632] border-b border-solid border-[#f0f2f5] dark:border-gray-700 sticky top-0 z-50">
+    <header className="bg-white dark:bg-[#1a2632] border-b border-solid border-[#f0f2f5] dark:border-gray-700 sticky top-0 z-50 transition-colors">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-3 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link to="/" className="flex items-center gap-3">
@@ -18,15 +18,11 @@ const Header: React.FC = () => {
             <h1 className="text-xl font-black uppercase tracking-tighter text-[#111418] dark:text-white">Tela Less</h1>
           </Link>
           <nav className="hidden lg:flex items-center gap-6">
-            <NavLink to="/" className={({ isActive }) => `hover:text-primary transition-colors text-sm font-semibold ${isActive ? 'text-primary' : ''}`}>Angola</NavLink>
-            <a className="hover:text-primary transition-colors text-sm font-semibold" href="#">África</a>
-            <a className="hover:text-primary transition-colors text-sm font-semibold" href="#">Economia</a>
-            <a className="hover:text-primary transition-colors text-sm font-semibold" href="#">Política</a>
-            <NavLink to="/multimedia" className={({ isActive }) => `hover:text-primary transition-colors text-sm font-semibold flex items-center gap-1 ${isActive ? 'text-primary font-bold' : ''}`}>
-              <span className="material-symbols-outlined text-base">play_circle</span> MMTV
-            </NavLink>
-            <Link to="/admin" className="hover:text-primary transition-colors text-sm font-semibold flex items-center gap-1">
-              <span className="material-symbols-outlined text-base">settings</span> Admin
+            <NavLink to="/" className={({ isActive }) => `hover:text-primary transition-colors text-sm font-semibold ${isActive ? 'text-primary' : 'text-gray-600 dark:text-gray-300'}`}>Home</NavLink>
+            <NavLink to="/economia" className={({ isActive }) => `hover:text-primary transition-colors text-sm font-semibold ${isActive ? 'text-primary' : 'text-gray-600 dark:text-gray-300'}`}>Economia</NavLink>
+            <NavLink to="/politica" className={({ isActive }) => `hover:text-primary transition-colors text-sm font-semibold ${isActive ? 'text-primary' : 'text-gray-600 dark:text-gray-300'}`}>Política</NavLink>
+            <Link to="/admin" className="hover:text-primary transition-colors text-sm font-semibold flex items-center gap-1 text-gray-600 dark:text-gray-300">
+              <span className="material-symbols-outlined text-base">settings</span> Admin Panel
             </Link>
           </nav>
         </div>
@@ -34,7 +30,7 @@ const Header: React.FC = () => {
           <button className="p-2 hover:bg-[#f0f2f5] dark:hover:bg-gray-700 rounded-lg transition-colors">
             <span className="material-symbols-outlined">search</span>
           </button>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2 text-[#111418] dark:text-white">
             <span className="material-symbols-outlined">{isMenuOpen ? 'close' : 'menu'}</span>
           </button>
         </div>
@@ -42,13 +38,12 @@ const Header: React.FC = () => {
       
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-[#1a2632] border-t border-[#f0f2f5] dark:border-gray-700 p-4 absolute w-full shadow-lg">
+        <div className="lg:hidden bg-white dark:bg-[#1a2632] border-t border-[#f0f2f5] dark:border-gray-700 p-4 absolute w-full shadow-lg z-50">
            <nav className="flex flex-col gap-4">
              <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-sm font-semibold">Home</Link>
-             <Link to="/multimedia" onClick={() => setIsMenuOpen(false)} className="text-sm font-semibold">MMTV</Link>
+             <Link to="/economia" onClick={() => setIsMenuOpen(false)} className="text-sm font-semibold">Economia</Link>
+             <Link to="/politica" onClick={() => setIsMenuOpen(false)} className="text-sm font-semibold">Política</Link>
              <Link to="/admin" onClick={() => setIsMenuOpen(false)} className="text-sm font-semibold">Admin Panel</Link>
-             <a className="text-sm font-semibold" href="#">Economia</a>
-             <a className="text-sm font-semibold" href="#">Política</a>
            </nav>
         </div>
       )}

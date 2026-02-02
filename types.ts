@@ -12,27 +12,11 @@ export interface Article {
   status?: 'Publicado' | 'Em Revisão' | 'Rascunho';
 }
 
-export interface Video {
-  id: string;
-  title: string;
-  description: string;
-  duration: string;
-  thumbnailUrl: string;
-  views?: string;
-}
-
-export interface Podcast {
-  id: string;
-  title: string;
-  frequency: string;
-  duration: string;
-  imageUrl: string;
-}
-
 export enum AppRoute {
   HOME = '/',
   ARTICLE = '/article/:id',
-  MULTIMEDIA = '/multimedia',
+  ECONOMIA = '/economia',
+  POLITICA = '/politica',
   ADMIN = '/admin',
   EDITOR = '/admin/editor'
 }

@@ -1,9 +1,9 @@
 
-import React, { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import ArticleDetail from './pages/ArticleDetail';
-import Multimedia from './pages/Multimedia';
+import CategoryPage from './pages/CategoryPage';
 import AdminDashboard from './pages/AdminDashboard';
 import Editor from './pages/Editor';
 import Header from './components/Header';
@@ -20,7 +20,8 @@ const AppContent: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/article/:id" element={<ArticleDetail />} />
-          <Route path="/multimedia" element={<Multimedia />} />
+          <Route path="/economia" element={<CategoryPage category="Economia" />} />
+          <Route path="/politica" element={<CategoryPage category="Política" />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/editor" element={<Editor />} />
         </Routes>
